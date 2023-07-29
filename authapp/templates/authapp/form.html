@@ -1,0 +1,433 @@
+{% load static %} 
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title> Multi-step form</title>
+  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css'>
+<link rel='stylesheet' href='{% static "css/form_style.css" %}'>
+
+
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-11 col-sm-10 col-md-10 col-lg-6 col-xl-5 text-center p-0 mt-3 mb-2">
+            <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
+                <h2 id="heading">Science and Engineering Research Board,India</h2>
+                <p>Fill all form field to go to next step</p>
+                <form id="msform" method="post" enctype="multipart/form-data" action="{% url 'authapp:form' %}">
+
+                    {% csrf_token %}
+                    <!-- progressbar -->
+                    <ul id="progressbar">
+                        <li class="active" id="confirm"><strong>Profile Details</strong></li>
+                        <li id="confirm"><strong>Qualifying Degree</strong></li>
+                        <li id="confirm"><strong>Proposed Research Details</strong></li>
+                        <li id="confirm"><strong>Mentor Details</strong></li>
+<li id="confirm"><strong>Upload Documents</strong></li>
+ <li id="confirm"><strong>Reference Details</strong></li>
+ <li id="confirm"><strong>Submit</strong></li>
+
+                      
+                       
+                      
+                    </ul>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+                    
+</div> <br> 
+<!--   Profile Details -->
+<fieldset>
+    <div class="form-card">
+        <div class="row">
+            <div class="col-7">
+                <h2 class="fs-title">Nominator Details</h2>
+            </div>
+<!--             <div class="col-5">
+                <h2 class="steps">Step 1 - 7</h2>
+            </div> -->
+        </div>
+        <section>
+<!--             <h4>Section 1: Personal Details</h4> -->
+            <label class="fieldlabels">Username: *</label>
+            <input type="text" name="uname" placeholder="Username" />
+            <label class="fieldlabels">Name: *</label>
+            <input type="text" name="name" placeholder="Name" />
+            <label class="fieldlabels">Date of Birth: *</label>
+            <!-- <input type="text" name="dob" placeholder="Date of Birth" /> -->
+            <input type="date" name="dob" value="2023-07-21" placeholder="Date of Birth">
+
+            <label class="fieldlabels">Mobile Number: *</label>
+            <input type="text" name="mobile" placeholder="Mobile Number" />
+            <label class="fieldlabels">Gender: *</label>
+            <input type="text" name="gender" placeholder="Gender" />
+            <label class="fieldlabels">Nationality: *</label>
+            <input type="text" name="nationality" placeholder="Nationality" />
+        </section>
+
+        <section>
+<!--             <h4>Section 2: Biodata Details</h4> -->
+            <label class="fieldlabels">Biodata File (max size 10 Mb): *</label>
+            <input type="file" name="biodata" accept=".pdf,.doc,.docx" />
+        </section>
+
+        <section>
+<!--             <h3>Section 3: Photo Details</h3> -->
+            <label class="fieldlabels">Photo (max size 500 kb, jpg): *</label>
+            <input type="file" name="photo" accept=".jpg,.jpeg" />
+        </section>
+
+        <section>
+<!--             <h3>Section 4: Father/Spouse Details</h3> -->
+            <label class="fieldlabels">Name of Father/Spouse: *</label>
+            <input type="text" name="father_spouse" placeholder="Name of Father/Spouse" />
+        </section>
+
+        <section>
+<!--             <h3>Section 5: Expertise Area</h3> -->
+            <label class="fieldlabels">Expertise Area: *</label>
+            <input type="text" name="expertise" placeholder="Expertise Area" />
+        </section>
+
+        <section>
+            <h5> Personal Address Details</h5>
+            <label class="fieldlabels">Address Line 1: *</label>
+            <input type="text" name="address1" placeholder="Address Line 1" />
+            <label class="fieldlabels">Address Line 2:</label>
+            <input type="text" name="address2" placeholder="Address Line 2" />
+            <label class="fieldlabels">City: *</label>
+            <input type="text" name="city" placeholder="City" />
+            <label class="fieldlabels">District: *</label>
+            <input type="text" name="district" placeholder="District" />
+            <label class="fieldlabels">State: *</label>
+            <input type="text" name="state" placeholder="State" />
+            <label class="fieldlabels">Pincode: *</label>
+            <input type="text" name="pincode" placeholder="Pincode" />
+        </section>
+
+        <section>
+            <h5>Institution Details</h5>
+            <label class="fieldlabels">State: *</label>
+            <input type="text" name="inst_state" placeholder="State" />
+            <label class="fieldlabels">District: *</label>
+            <input type="text" name="inst_district" placeholder="District" />
+            <label class="fieldlabels">Institution: *</label>
+            <input type="text" name="institution" placeholder="Institution" />
+            <label class="fieldlabels">Designation:</label>
+            <input type="text" name="designation" placeholder="Designation" />
+            <label class="fieldlabels">Department:</label>
+            <input type="text" name="department" placeholder="Department" />
+        </section>
+    </div>
+    <input type="button" name="next" class="next action-button" value="Next" />
+</fieldset>
+<!-- Qualifying Degree -->
+<fieldset>
+    <div class="form-card">
+        <div class="row">
+            <div class="col-7">
+                <h2 class="fs-title">Nominator Details</h2>
+            </div>
+<!--             <div class="col-5">
+                <h2 class="steps">Step 1 - 8</h2>
+            </div> -->
+        </div>
+        <!-- Section: Details of Qualifying Degree -->
+        <section>
+<!--             <h3>Section 8: Details of Qualifying Degree</h3> -->
+            <label class="fieldlabels">Qualifying Degree:</label>
+            <select name="qualifying_degree">
+                <option value="M.S.">M.S.</option>
+                <option value="M.D.">M.D.</option>
+                <option value="PhD">PhD</option>
+            </select>
+          <br>
+            <label class="fieldlabels">Qualifying Degree Awarded:</label>
+            <select name="degree_awarded">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+          <br>
+            <label class="fieldlabels">Qualifying Degree Date:</label>
+            <input type="date" value="2023-07-21" name="degree_date" placeholder="dd month, yyyy" />
+    <label class="fieldlabels">Thesis Title</label>
+    <textarea class="thesis-title" rows="1" cols="50" maxlength="100" placeholder="Enter your thesis title" name="thesis_title"></textarea>
+    <p>Characters remaining: <span class="char-count">200</span></p>
+            <label class="fieldlabels">Subject:</label>
+             <textarea class="thesis-title" rows="1" cols="50" maxlength="200" placeholder="Subject" name="subject"></textarea>
+    <p>Characters remaining: <span class="char-count">200</span></p>
+            <label class="fieldlabels">Name of Research Supervisor/Guide*:</label>
+           <textarea class="thesis-title" rows="1" cols="50" maxlength="200" placeholder="Name of Research Supervisior/Guide" name="supervisior_guide"></textarea>
+    <p>Characters remaining: <span class="char-count">200</span></p>
+            <label class="fieldlabels">Name of University/Institute:</label>
+            <textarea class="thesis-title" rows="1" cols="50" maxlength="200" placeholder="Name of University/Institute" name="university_institute"></textarea>
+    <p>Characters remaining: <span class="char-count">200</span></p>
+            <label class="fieldlabels">Brief Details of Research Work:</label>
+            <textarea class="thesis-title" rows="4" cols="50" maxlength="100" placeholder="Enter your Research Work Details" name="research_work_details"></textarea>
+    <p>Characters remaining: <span class="char-count">6000</span></p>
+        </section>
+    </div>
+    <input type="button" name="next" class="next action-button" value="Next" />
+</fieldset>
+<!-- Proposed Research Details                   -->
+ <fieldset>
+    <div class="form-card">
+        <div class="row">
+            <div class="col-7">
+                <h2 class="fs-title">Proposed Research Details</h2>
+            </div>
+<!--             <div class="col-5">
+                <h2 class="steps">Step 1 - 8</h2>
+            </div> -->
+        </div>
+        <!-- Section: Proposed Research Details -->
+        <section>
+<!--             <h3>Section 8: Details of Qualifying Degree</h3> -->
+  <label class="fieldlabels">Project Title:</label>
+            <textarea class="thesis-title" rows="2" cols="50" maxlength="500" placeholder="Enter your Project Title" name="project_title"></textarea>
+    <p>Characters remaining: <span class="char-count">500</span></p>
+<!--   Scheme :National Post Doctoral Fellowship(NDRF) -->
+<!--           <label class="fieldlabels">BroadArea:</label>
+          <select id="broadAreaSelect" style="color:gray;">
+      <option value="">Select an option</option>
+      <option value="Chemical Sciences">Chemical Sciences</option>
+      <option value="Earth and Atmospheric Sciences">Earth and Atmospheric Sciences</option>
+      <option value="Computer Science">Computer Science</option>
+      <option value="Physical & Mathematics Science">Physical & Mathematics Science</option>
+ 
+    
+    </select>
+<br> -->
+<!--           <label class="fieldlabels">Sub Area:</label>
+            <textarea class="thesis-title" rows="1" cols="50" maxlength="500" placeholder="Enter your Project Sub Area"></textarea> -->
+ <label class="fieldlabels">Project Summary:</label>
+          <p ><small>
+      <em>(The project summary should contain rationale of the research, its scientific objectives, what hypothesis/model to be tested, the main experiments to be carried out, and an estimate of the significance to the field of research if the objective is reached in terms of fundamental understanding and/or application.)</em>
+    </small></p>
+            <textarea class="thesis-title" rows="4" cols="50" maxlength="500" placeholder="Enter your Project Summary" name="project_summary"></textarea>
+    <p>Characters remaining: <span class="char-count">500</span></p>
+<label class="fieldlabels">Keywords (Max. 6) : *</label>
+          <p ><small>
+      <em>(Max length of any keyword should not exceed more than 30 characters.)</em>
+    </small></p>
+            <textarea class="thesis-title" rows="2" cols="50" maxlength="500" placeholder="Enter Keywords" name="keywords"></textarea>
+    <p>Characters remaining: <span class="char-count">180</span></p>
+<label class="fieldlabels">Objective(s) (in bullets) : *</label>
+          <p ><small>
+      <em>(These should be very specific, to be given in bullet points for the work to be carried out (not more than 6 bullet points). These will serve as evaluation criteria at monitoring stage.)</em>
+    </small></p>
+            <textarea class="thesis-title" rows="4" cols="50" maxlength="1500" placeholder="Enter Project Objectives" name="objectives"></textarea>
+    <p>Characters remaining: <span class="char-count">1500</span></p>
+<label class="fieldlabels">Expected output and outcome of the proposal : *</label>
+          <p ><small>
+      <em>(The products, services or facilities that would result from the project activities; and the benefits that may happen from the project activities may be highlighted.)</em>
+    </small></p>
+            <textarea class="thesis-title" rows="4" cols="50" maxlength="1500" placeholder="Enter Result" name="result"></textarea>
+    <p>Characters remaining: <span class="char-count">1500</span></p>
+<label class="fieldlabels">Upload Detailed Methodology and Work Plan :* (Only .pdf - not more than 3 pages with max size of 10 MB)</label>
+<input type="file" name="methodology_work_plan " id="pdfFile" accept=".pdf" onchange="return validateFile()" />
+    
+   
+        </section>
+    </div>
+    <input type="button" name="next" class="next action-button" value="Next" />
+</fieldset>
+<!--  Mentor Details                  -->
+<fieldset>
+    <div class="form-card">
+        <div class="row">
+            <div class="col-7">
+                <h2 class="fs-title">Mentor Details</h2>
+            </div>
+<!--             <div class="col-5">
+                <h2 class="steps">Step 1 - 8</h2>
+            </div> -->
+        </div>
+        <!-- Section: Details of Qualifying Degree -->
+        <section>
+<!--             <h3>Section 8: Mentor Details </h3> -->
+  <label class="fieldlabels">Name & Address of the Host Institution : *</label>
+            <textarea class="thesis-title" rows="1" cols="50" maxlength="100" name="mentor_institute" placeholder="Institute Name of Mentor"></textarea>
+<label class="fieldlabels"> Email Address of proposed Mentor:</label>
+            <textarea class="thesis-title" rows="1" cols="50" maxlength="500" name="mentor_email" placeholder="Enter your Mentor Email Address"></textarea>
+<label class="fieldlabels">Mentor:</label>
+            <textarea class="thesis-title" rows="1" cols="50" maxlength="500" placeholder="Registered Mentor" name="mentor_name"></textarea>
+<label class="fieldlabels">Email Adress of Registrar:</label>
+            <textarea class="thesis-title" rows="1" cols="50" maxlength="500" name="registrar_email" placeholder="Email Address of Registrar for Proposed Mentor"></textarea>
+<label class="fieldlabels">No. of Phd Scholars Working:</label>
+            <textarea class="thesis-title" rows="1" cols="50" maxlength="500" name="phd_scholars_working" placeholder="Phd Scholars Working Number"></textarea>
+<label class="fieldlabels">No. of Postdoctoral fellows working :</label>
+            <textarea class="thesis-title" rows="1" cols="50" maxlength="500" name="postdoc_fellows_working" placeholder="Number of Postdoc Fellows Working under Mentor"></textarea>
+
+
+ 
+   
+    
+        </section>
+    </div>
+    <input type="button" name="next" class="next action-button" value="Next" />
+</fieldset>
+ 
+<!-- Upload Documents -->
+<fieldset>
+    <div class="form-card">
+        <div class="row">
+            <div class="col-7">
+                <h2 class="fs-title">Upload Documents</h2>
+            </div>
+<!--             <div class="col-5">
+                <h2 class="steps">Step 1 - 8</h2>
+            </div> -->
+        </div>
+        <!-- Section: Details of Qualifying Degree -->
+        <section>
+<!--             <h3>Section 8: Details of Qualifying Degree</h3> -->
+        <table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">S.No</th>
+      <th scope="col" colspan="2">Document Name </th>
+      <th scope="col">Upload</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td colspan="2">Undertaking by Applicant </td>
+      <td><input type="file" accept=".pdf" name="Undertaking"/></td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td colspan="2">Endorsement Letter from the Head of Institution </td>
+       <td><input type="file" accept=".pdf" name="Endorsement" /></td>
+     
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td colspan="2">Date of Birth Certificate </td>
+       <td><input type="file" accept=".pdf" name="Birth" /></td>
+    </tr>
+    <tr>
+      <th scope="row">4</th>
+      <td colspan="2">CV of Mentor</td>
+       <td><input type="file" accept=".pdf" name="CV" /></td>
+    </tr>
+    <tr>
+      <th scope="row">5</th>
+      <td colspan="2">Plagiarism undertaking </td>
+       <td><input type="file" accept=".pdf" name="Plagiarism"/></td>
+    </tr>
+     <tr>
+      <th scope="row">6</th>
+      <td colspan="2">Reprint of Best Publication-2 </td>
+       <td><input type="file" accept=".pdf" name="Best Publication-2" /></td>
+    </tr>
+     <tr>
+      <th scope="row">7</th>
+      <td colspan="2">Caste Certificate </td>
+       <td><input type="file" accept=".pdf" name="Caste" /></td>
+    </tr>
+    <tr>
+      <th scope="row">8</th>
+      <td colspan="2">PhD or MS or MD degree certificate</td>
+       <td><input type="file" accept=".pdf" name="Degree" /></td>
+    </tr>
+     <tr>
+      <th scope="row">9</th>
+      <td colspan="2">Thesis Submission Certificate </td>
+       <td><input type="file" accept=".pdf" name="thesis" /></td>
+    </tr>
+    <tr>
+      <th scope="row">10</th>
+      <td colspan="2">Reprint of Best Publication-1</td>
+       <td><input type="file" accept=".pdf" name="Best Publication-1"/></td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+
+
+
+
+        </section>
+    </div>
+    <input type="button" name="next" class="next action-button" value="Next" />
+</fieldset>
+<!-- Reference Details -->
+<fieldset>
+    <div class="form-card">
+        <div class="row">
+            <div class="col-7">
+                <h2 class="fs-title">References Detail</h2>
+            </div>
+
+        </div>
+        <section>
+          <h5>Reference 1</h5>
+          <label class="fieldlabels">Name and Address</label>
+    <textarea class="thesis-title" rows="3" cols="50" maxlength="1000" placeholder="Name and Address" name="reference1_name_address"></textarea>
+   
+ <label class="fieldlabels">Email</label>
+    <textarea class="thesis-title" rows="1" cols="50" maxlength="1000" placeholder="Email" name="reference1_email"></textarea>
+<label class="fieldlabels">Contact Number</label>
+    <textarea class="thesis-title" rows="1" cols="50" maxlength="1000" placeholder="Contact No" name="reference1_contact"></textarea>
+<h5> Reference 2</h5>
+<label class="fieldlabels">Name and Address</label>
+    <textarea class="thesis-title" rows="3" cols="50" maxlength="1000" placeholder="Name and Address" name="reference2_name_address"></textarea>
+  
+ <label class="fieldlabels">Email</label>
+    <textarea class="thesis-title" rows="1" cols="50" maxlength="1000" placeholder="Email" name="reference2_email"></textarea>
+<label class="fieldlabels">Contact Number</label>
+    <textarea class="thesis-title" rows="1" cols="50" maxlength="1000" placeholder="Contact No" name=" reference2_contact"></textarea>
+
+
+
+
+ 
+ 
+   
+    
+        </section>
+    </div>
+   <input type="submit" name="next" class="next action-button" value="Submit" /> 
+</fieldset>
+ <fieldset>
+                        <div class="form-card">
+<!--                             <div class="row">
+                                <div class="col-7">
+                                    <h2 class="fs-title">Finish:</h2>
+                                </div> -->
+<!--                                 <div class="col-5">
+                                    <h2 class="steps">Step 4 - 4</h2>
+                                </div> -->
+                            </div> <br><br>
+                            <h2 class="purple-text text-center"><strong>SUCCESS !</strong></h2> <br>
+                            <div class="row justify-content-center">
+                                <div class="col-3"> <img src="{% static 'img/img1.png' %}" class="fit-image"> </div>
+                            </div> <br><br>
+                            <div class="row justify-content-center">
+                                <div class="col-7 text-center">
+                                    <h5 class="purple-text text-center">You Have Successfully Submitted</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                   
+          
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+  <script src="{% static 'javascript/form_script.js' %}"></script>
+
+</body>
+</html>

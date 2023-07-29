@@ -1,0 +1,142 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="{% static 'css/style1.css' %}">
+  <!-- <link rel="stylesheet" href="{% static 'authapp/static/css/style.css' %}"> -->
+  
+
+</head>
+
+<body>
+  <!-- partial:index.partial.html -->
+  ​<!-- Box icon CSS   -->
+  <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+  <!-- End -->
+  <!-- {% include "navbar.html" %} -->
+
+  <div class="sidebar close">
+    <div class="logo-details">
+
+      <a href="#">
+        <i class='bx bx-home'></i>
+      </a>
+      <span class="logo_name">Serb Online Home </span>
+
+
+    </div>
+    <ul class="nav-links">
+      <li>
+        <div class="icon-link">
+          <a href="#">
+            <i class='bx bx-file'></i>
+            <span class="link_name">Proposal</span>
+          </a>
+          <i class='bx bxs-chevron-down arrow'></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a class="link_name" href="#">Proposal Submission</a></li>
+
+          <li>
+
+            <a href="{% url 'authapp:form' %}">Form Submisison</a>
+          </li>
+          <li><a href="#">Saved Proposal</a></li>
+          <li><a href="{% url 'authapp:proposal_inbox' %}">View Submitted Proposals</a></li>
+        </ul>
+      </li>
+      <li>
+        <div class="icon-link">
+          <a href="#">
+            <i class='bx bxs-credit-card'></i>
+            <span class="link_name">RTGS/Quotations</span>
+          </a>
+          <i class='bx bxs-chevron-down arrow'></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a class="link_name" href="#">RTGS/Quotations</a></li>
+          <li><a href="#">Upload</a></li>
+        </ul>
+      </li>
+      <li>
+        <div class="icon-link">
+          <a href="#">
+            <i class='bx bx-news'></i>
+            <span class="link_name">Requests</span>
+          </a>
+          <i class='bx bxs-chevron-down arrow'></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a class="link_name" href="#">Requests</a></li>
+          <li><a href="#">Request Sent</a></li>
+          <li><a href="#">Submit Document</a></li>
+          <li><a href="#">Request for change of institute after release</a></li>
+          <li><a href="#">Miscellaneous Request</a></li>
+        </ul>
+      </li>
+      <li>
+        <div class="icon-link">
+          <a href="#">
+            <i class='bx bx-user'></i>
+            <span class="link_name">User Profile</span>
+          </a>
+          <i class='bx bxs-chevron-down arrow'></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a class="link_name" href="#">User Profile</a></li>
+          <li><a href="#">
+              Profile Detail</a></li>
+          <li><a href="#">Profile Other Detail</a></li>
+          <li><a href="#">View Fill Profile</a></li>
+          <li><a href="#">Funded Projects </a></li>
+          <li><a href="#">Change Password</a></li>
+        </ul>
+      </li>
+
+
+
+    </ul>
+
+    <li>
+      <div class="profile-details">
+        <!-- <div class="profile-content">
+            <img src="" alt="profileImg">
+          </div> -->
+        <div></div>
+
+        <div class="name-job">
+          <div class="profile_name"> <b> Welcome {{user.first_name}}</b></div>
+        </div>
+        <a href="{% url 'authapp:logout' %}"><i class='bx bx-log-out' style="color:white;"></i></a>
+
+      </div>
+    </li>
+    </ul>
+  </div>
+  <section class="home-section">
+    <div class="home-content">
+      <i class='bx bx-menu' style="color: black;font:bolder; "> </i>
+
+      <!-- Right section of the sidemenu -->
+      <div class="right-section">
+        <h1 class="serb-heading">Central Wool Development Board</h1>
+        <p class="serb-details">
+        <div>Ministry of Textiles - Government of India</div>
+        
+        </p>
+      </div>
+    </div>
+  </section>
+  <div>
+
+
+
+    <!-- partial -->
+    <script src="{%static 'javascript/script.js' %}"></script>
+
+</body>
+
+</html>

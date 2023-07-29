@@ -1,0 +1,20 @@
+<!-- save.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Saved Forms</title>
+</head>
+<body>
+    <h1>Saved Forms</h1>
+    <ul>
+        {% for form_submission in saved_forms %}
+        <li>
+            <a href="{% url 'form_details' form_submission.reference_number %}">
+                Reference Number: {{ form_submission.reference_number }}
+            </a> | Status: {{ form_submission.status }}
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
