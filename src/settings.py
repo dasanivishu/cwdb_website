@@ -138,9 +138,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     STATIC_DIR,
-    os.path.join(BASE_DIR, 'authenication/authapp/static'),
+    os.path.join(BASE_DIR, 'authenication/static'),
 ]
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'authenication/static')
 
 LOGIN_REDIRECT_URL = 'authapp:dashboard'
 LOGIN_URL = 'login'
